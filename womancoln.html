@@ -1,0 +1,485 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /*GLOBAL STYLES*/
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0; 
+        }
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-image: url("lotus3.jpg");
+        }
+
+        /*NAV BAR SECTION WITH RESPONSIVE*/
+        .navbar input[type="checkbox"],
+        .navbar .hamburger-lines {
+            display: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: auto;
+        }
+
+        .navbar {
+            box-shadow: 0px 5px 10px 0px #aaa;
+            position: fixed;
+            width: 100%;
+            background: white;
+            color: #000;
+            opacity: 0.85;
+            z-index: 100;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            height: 64px;
+            align-items: center;
+        }
+
+        .menu-items {
+            order: 2;
+            display: flex;
+        }
+
+        .logo {
+            order: 1;
+            font-size: 2.3rem;
+        }
+
+        .menu-items li {
+            list-style: none;
+            font-size: 20px;
+            margin-left: 80px;
+        }
+
+        .navbar a {
+            color: #444;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            color: #117964;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                opacity: 0.95;
+            }
+
+            .navbar-container input[type="checkbox"],
+            .navbar-container .hamburger-lines {
+                display: block;
+            }
+
+            .navbar-container {
+                display: block;
+                position: relative;
+                height: 64px;
+            }
+
+            .navbar-container input[type="checkbox"] {
+                position: absolute;
+                display: block;
+                height: 32px;
+                width: 30px;
+                top: 20px;
+                left: 20px;
+                z-index: 5;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            .navbar-container .hamburger-lines {
+                display: block;
+                height: 28px;
+                width: 35px;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .navbar-container .hamburger-lines .line {
+                display: block;
+                height: 4px;
+                width: 100%;
+                border-radius: 10px;
+                background: #333;
+            }
+            
+            .navbar-container .hamburger-lines .line1 {
+                transform-origin: 0% 0%;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .navbar-container .hamburger-lines .line2 {
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .navbar-container .hamburger-lines .line3 {
+                transform-origin: 0% 100%;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .navbar .menu-items {
+                padding-top: 100px;
+                background: #fff;
+                height: 100vh;
+                max-width: 300px;
+                transform: translate(-150%);
+                display: flex;
+                flex-direction: column;
+                margin-left: -40px;
+                padding-left: 40px;
+                transition: transform 0.5s ease-in-out;
+                box-shadow:  5px 0px 10px 0px #aaa;
+                overflow: scroll;
+            }
+
+            .navbar .menu-items li {
+                margin-bottom: 1.8rem;
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+
+            .logo {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                font-size: 2.5rem;
+            }
+
+            .navbar-container input[type="checkbox"]:checked ~ .menu-items {
+                transform: translateX(0);
+            }
+
+            .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+                transform: rotate(45deg);
+            }
+
+            .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+                transform: scaleY(0);
+            }
+
+            .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+                transform: rotate(-45deg);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .navbar-container input[type="checkbox"]:checked ~ .logo {
+                display: none;
+            }
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------*/
+
+        /*EXPLORE JEWELLERY CATEGORY*/
+
+        .container1 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            /* padding: 20px; */
+           
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            /* margin-bottom: 2000px; */
+           
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            height: auto;
+        }
+
+        .card h3 {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+
+    
+        
+       
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .container1 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container1 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container1 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    
+    /* This is for less space */
+    .card-list {
+        margin-bottom: 50px !important; 
+        margin-top: 50px !important;
+    }
+
+    /*-----------------------------------------------------------------------------------------------------------------------------*/
+
+         /* Footer Styles */
+     footer {
+            background:#255F38;
+            color: #fff;
+            padding: 40px 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-logo img {
+            width: 150px;
+            margin-bottom: 15px;
+            height: 150px;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: #d4af37; /* Gold color */
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #d4af37;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #d4af37;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!--NAVBAR SECTION-->
+    <section>
+    <nav class="navbar" style="position: fixed; top: 0; width: 100%; z-index: 1000; margin: 0; padding: 0;">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="Jewellery.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Category.html">Category</a></li>
+                <li><a href="Gifts.html">Gifts</a></li>
+                <li><a href="Testimonial.html">Testimonial</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+            <img src="logo2.jpeg" style="height: 60px; width: 60px;"> 
+            <h1 class="logo">Jewel Shop</h1>
+        </div>
+    </nav>
+</section><br><br><br><br>
+
+<!----------------------------------------------------------------------------------------------------------------------------->
+
+<!--EXPLORE JEWELS CATEGORY-->
+
+<section style="margin: 0;">
+
+    <h1 style="text-align: center; font-size: 50px;">Shop By <strong>Women's Collections</strong></h1><br><br>
+    <div class="category">
+        <div class="container1">
+            <div class="card">
+                <img src="b4.jpg" alt="Bangles">
+                <h3><a href="bangles.html" target="_blank" style="text-decoration: none; color: black;">Explore Bangles</a></h3>
+            </div>
+            <div class="card">
+                <img src="b6.jpg" alt="Bracelet">
+                <h3><a href="bangles.html" target="_blank" style="text-decoration: none; color: black;">Explore Bracelets</a></h3>
+            </div>
+            <div class="card">
+                <img src="earring2.jpg" alt="Earrings">
+                <h3><a href="earring.html" target="_blank" style="text-decoration: none; color: black;">Explore Earrings</a></h3>
+            </div>
+            <div class="card">
+                <img src="necklace1.jpg" alt="Necklaces">
+                <h3><a href="necklace.html" target="_blank" style="text-decoration: none; color: black;">Explore Necklaces</a></h3>
+            </div>
+
+            <div class="card">
+                <img src="R1.jpg" alt="Ring">
+                <h3><a href="rings.html" target="_blank" style="text-decoration: none; color: black;">Explore Rings</a></h3>
+            </div>
+            <div class="card">
+                <img src="mgl.jpg" alt="mangalsutra">
+                <h3><a href="mangal.html" target="_blank" style="text-decoration: none; color: black;">Explore Mangalsutra</a></h3>
+            </div>
+            <div class="card">
+                <img src="mt.jpg" alt="Mangtikka">
+                <h3><a href="mangtikka.html" target="_blank" style="text-decoration: none; color: black;">Explore Mangtikka</a></h3>
+            </div>
+            <div class="card">
+                <img src="pen.jpg" alt="Pendants" style="height: 250px;">
+                <h3><a href="Pendants.html" target="_blank" style="text-decoration: none; color: black;">Explore Pendants</a></h3>
+            </div>
+        </div>
+    </div>
+</section><br><br>
+
+<!-------------------------------------------------------------------------------------------------------------------------------------->
+
+<!--FOOTER SECTION-->
+
+<section>
+           
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="logo1-removebg-preview.png" alt="Jewellery Shop Logo">
+                <p>Crafting elegance since 1993</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">Bridal Jewellery</a></li>
+                    <li><a href="#">Custom Designs</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Jewel Street, Chennai</p>
+                <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                <p><i class="fas fa-envelope"></i> info@jewelshop.com</p>
+                
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Jewel Shop. All Rights Reserved.</p>
+        </div>
+    </footer>
+</section>
+
+<!---------------------------------------------------------------------------------------------------------------->
+
+</body>
+</html>

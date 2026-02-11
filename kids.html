@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Collections</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
+        }
+
+        body
+        {
+            /* background-image: url("lotus3.jpg");*/
+            background-color: #255F38;
+        } 
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid goldenrod;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            background-color: white;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card-price {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #255F38;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 20px;
+        }
+
+        .card-btn:hover
+        {
+            background-color: goldenrod;
+            color: black;
+        }
+
+        @media (max-width: 600px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+
+         /*-----------------------------------------------------------------------------------------*/
+
+         /*BACK BUTTON*/
+         .back-button {
+        display: inline-block;
+        height: 30px;
+        width: 70px;
+        background-color: #255F38;
+        color: white;
+        border: none;
+        text-decoration: none;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 4px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .back-button:hover {
+        background-color: #1a4729;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .back-button {
+            height: 36px;
+            width: 80px;
+            line-height: 36px;
+            font-size: 15px;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <br><br>
+
+    <a href="gender.html" class="back-button">Back</a>
+
+    <h1 style="font-size: 50px; text-align: center; color: goldenrod;"><strong>Kids & Teens </strong> Jewellery </h1><br><br>
+    <div class="products">
+        <div class="card">
+            <img src="k1.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Twirlilng Stud</h3>
+                <p class="card-price">₹19,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k2.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Radient Floral Studs</h3>
+                <p class="card-price">₹19,161</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k3.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Starring Swastik Studs</h3>
+                <p class="card-price">₹ 20,001</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="k4.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Grand Ethinic Studs</h3>
+                <p class="card-price">₹ 20,009</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k5.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Showstapping Starry Necklace</h3>
+                <p class="card-price">₹ 23,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k6.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Ring Earrings</h3>
+                <p class="card-price">₹ 24,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="k7.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Parrot Dolar Chain</h3>
+                <p class="card-price">₹ 30,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k8.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Dancing Dolphin Studs</h3>
+                <p class="card-price">₹ 23,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k9.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Tiny Twist Studs</h3>
+                <p class="card-price">₹29,999</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="k10.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Little Flyers Diamond Chain</h3>
+                <p class="card-price">₹32,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k11.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Tiny Tressure Gold Bangles</h3>
+                <p class="card-price">₹ 34,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k12.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Swan Gold Bangles</h3>
+                <p class="card-price">₹ 40,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+
+    <!---------------------------------------------------------------------------------->
+
+    <!--Add to cart script -->
+
+     <!-- Cart Icon -->
+<div id="cart-icon" style="position: fixed; top: 20px; right: 20px; cursor: pointer; z-index: 200;">
+    🛒<span id="cart-count" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 14px;">0</span>
+</div>
+
+<!-- Cart Modal -->
+<div id="cart-modal" style="display: none; position: fixed; top: 60px; right: 20px; background: white; border: 1px solid #ccc; padding: 10px; max-height: 300px; width: 250px; overflow-y: auto; box-shadow: 0 0 10px #333; z-index: 300;">
+    <h3>Cart</h3>
+    <div id="cart-items"></div>
+    <h4>Your Receipt Via</h4>
+    <button onclick="sendReceipt('whatsapp')" style="height: 30px; width: 70px; background-color: #255F38; color: white; border: none;">WhatsApp</button>
+    <button onclick="sendReceipt('email')" style="height: 30px; width: 70px; background-color: #255F38; color: white; border: none;">Email</button>
+</div>
+
+<script>
+    const cart = [];
+    const cartIcon = document.getElementById("cart-icon");
+    const cartModal = document.getElementById("cart-modal");
+    const cartItems = document.getElementById("cart-items");
+    const cartCount = document.getElementById("cart-count");
+
+    document.querySelectorAll(".card-btn").forEach((btn, index) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const card = btn.closest(".card");
+            const title = card.querySelector(".card-title").innerText;
+            const price = card.querySelector(".card-price").innerText;
+            const imgSrc = card.querySelector(".card-img").src;
+
+            cart.push({ title, price, imgSrc });
+            updateCart();
+        });
+    });
+
+    function updateCart() {
+        cartItems.innerHTML = "";
+        cart.forEach(item => {
+            cartItems.innerHTML += `
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <img src="${item.imgSrc}" style="width: 40px; height: 40px; object-fit: cover; margin-right: 10px;">
+                    <div>
+                        <strong>${item.title}</strong><br>
+                        <span>${item.price}</span>
+                    </div>
+                </div>
+            `;
+        });
+        cartCount.innerText = cart.length;
+    }
+
+    cartIcon.addEventListener("click", () => {
+        cartModal.style.display = cartModal.style.display === "none" ? "block" : "none";
+    });
+
+    function sendReceipt(method) {
+        let text = "🧾 *Your Jewel Shop Receipt*:\n\n";
+        cart.forEach(item => {
+            text += `• ${item.title} - ${item.price}\n`;
+        });
+
+        if (method === "whatsapp") {
+            const waURL = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(waURL, "_blank");
+        } else {
+            const gmailURL = "https://mail.google.com/mail/?view=cm&fs=1&su=" +
+                 encodeURIComponent("Your Jewel Shop Receipt") +
+                 "&body=" + encodeURIComponent(text);
+                    window.open(gmailURL, "_blank");
+
+
+        }
+    }
+</script>
+
+    
+</body>
+</html>

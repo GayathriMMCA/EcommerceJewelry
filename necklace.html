@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>necklace Collections</title>
+    <style>
+         
+        /*GLOBAL STYLES*/
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0; 
+        }
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-image: url("lotus3.jpg");
+        }
+
+        /*NAV BAR SECTION WITH RESPONSIVE*/
+        .navbar input[type="checkbox"],
+        .navbar .hamburger-lines {
+            display: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: auto;
+        }
+
+        .navbar {
+            box-shadow: 0px 5px 10px 0px #aaa;
+            position: fixed;
+            width: 100%;
+            background: white;
+            color: #000;
+            opacity: 0.85;
+            z-index: 100;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            height: 64px;
+            align-items: center;
+        }
+
+        .menu-items {
+            order: 2;
+            display: flex;
+        }
+
+        .logo {
+            order: 1;
+            font-size: 20px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: #d4af37;
+            /* margin-right: 180px; */
+        }
+
+
+        .menu-items li {
+            list-style: none;
+            font-size: 20px;
+            margin-left: 80px;
+        }
+
+        .navbar a {
+            color: #444;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            color: #117964;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                opacity: 0.95;
+            }
+
+            .navbar-container input[type="checkbox"],
+            .navbar-container .hamburger-lines {
+                display: block;
+            }
+
+            .navbar-container {
+                display: block;
+                position: relative;
+                height: 64px;
+            }
+
+            .navbar-container input[type="checkbox"] {
+                position: absolute;
+                display: block;
+                height: 32px;
+                width: 30px;
+                top: 20px;
+                left: 20px;
+                z-index: 5;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            .navbar-container .hamburger-lines {
+                display: block;
+                height: 28px;
+                width: 35px;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .navbar-container .hamburger-lines .line {
+                display: block;
+                height: 4px;
+                width: 100%;
+                border-radius: 10px;
+                background: #333;
+            }
+            
+            .navbar-container .hamburger-lines .line1 {
+                transform-origin: 0% 0%;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .navbar-container .hamburger-lines .line2 {
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .navbar-container .hamburger-lines .line3 {
+                transform-origin: 0% 100%;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .navbar .menu-items {
+                padding-top: 100px;
+                background: #fff;
+                height: 100vh;
+                max-width: 300px;
+                transform: translate(-150%);
+                display: flex;
+                flex-direction: column;
+                margin-left: -40px;
+                padding-left: 40px;
+                transition: transform 0.5s ease-in-out;
+                box-shadow:  5px 0px 10px 0px #aaa;
+                overflow: scroll;
+            }
+
+            .navbar .menu-items li {
+                margin-bottom: 1.8rem;
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+
+            .logo {
+                position: absolute;
+                bottom: 4px;
+                right: 15px;
+                font-size: 20px;
+            }
+            .navbar-container input[type="checkbox"]:checked ~ .menu-items {
+                transform: translateX(0);
+            }
+
+            .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+                transform: rotate(45deg);
+            }
+
+            .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+                transform: scaleY(0);
+            }
+
+            .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+                transform: rotate(-45deg);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .navbar-container input[type="checkbox"]:checked ~ .logo {
+                display: none;
+            }
+        }
+
+        /*--------------------------------------------------------------------------------*/
+        /*EARRING STYLES*/
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
+        }
+
+        body
+        {
+            /* background-image: url("lotus3.jpg");*/
+            background-color: #255F38;
+        } 
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid goldenrod;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            background-color: white;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card-price {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #255F38;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 20px;
+        }
+
+        .card-btn:hover
+        {
+            background-color: goldenrod;
+            color: black;
+        }
+
+        @media (max-width: 600px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /*-------------------------------------------------------------*/
+
+         /* Footer Styles */
+     footer {
+            background:#255F38;
+            color: #fff;
+            padding: 40px 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-logo img {
+            width: 150px;
+            margin-bottom: 15px;
+            height: 150px;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: #d4af37; /* Gold color */
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #d4af37;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #d4af37;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+     <!--NAVBAR SECTION-->
+     <section>
+        <nav class="navbar">
+            <div class="navbar-container container">
+                <input type="checkbox" name="" id="">
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+                <ul class="menu-items">
+                    <li><a href="Jewellery.html">Home</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="gender.html">Category</a></li>
+                    <li><a href="Gifts.html">Gifts</a></li>
+                    <li><a href="Testimonial.html">Testimonial</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+                <h1 class="logo" style="margin-right: 100px;"><img src="logo2.jpeg" style="height: 55px; width: 60px;"> Jewel Shop</h1>
+            </div>
+        </nav>
+    </section>
+    <br><br> <br><br>
+    <!---------------------------------------------------------------------------------------------------------------->
+    
+    
+    <!--EARRING COLLECTION-->
+
+    <br><br> 
+    <h1 style="font-size: 50px; text-align: center;"><strong>Women's</strong> Stunning Necklace</h1><br><br>
+    <div class="products">
+        <div class="card">
+            <img src="necklace1.jpg" alt="earring1" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Templecar earrings</h3>
+                <p class="card-price">₹29,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="necklace2.jpg" alt="earring2" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Radient Floral Earrings</h3>
+                <p class="card-price">₹39,161</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="necklace3.jpg" alt="earring3" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Krishna Peacock Design Earrings</h3>
+                <p class="card-price">₹ 40,001</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="necklace4.jpg" alt="earring4" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Grand Ethinic Studs</h3>
+                <p class="card-price">₹ 40,009</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="necklace5.jpg" alt="earring5" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Templecar Yazhi Design Earrings</h3>
+                <p class="card-price">₹ 23,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="necklace6.jpg" alt="earring6" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Hook type Stone Earrings</h3>
+                <p class="card-price">₹ 24,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- <div class="card">
+            <img src="earring7" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Parrot Dolar Chain</h3>
+                <p class="card-price">₹ 30,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k8.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Dancing Dolphin Studs</h3>
+                <p class="card-price">₹ 23,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k9.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Tiny Twist Studs</h3>
+                <p class="card-price">₹29,999</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="k10.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Little Flyers Diamond Chain</h3>
+                <p class="card-price">₹32,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k11.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Tiny Tressure Gold Bangles</h3>
+                <p class="card-price">₹ 34,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="k12.jpg" alt="Product" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Swan Gold Bangles</h3>
+                <p class="card-price">₹ 40,000</p>
+                <a href="#" class="card-btn">Add to Cart</a>
+            </div>
+        </div> -->
+    </div>
+    <!--------------------------------------------------------------------------------------------------------------->
+
+    <section>
+           
+        <footer>
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="logo1-removebg-preview.png" alt="Jewellery Shop Logo">
+                    <p>Crafting elegance since 1993</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Bridal Jewellery</a></li>
+                        <li><a href="#">Custom Designs</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Jewel Street, Chennai</p>
+                    <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> info@jewelshop.com</p>
+                    
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Jewel Shop. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!--Code for Add to cart-->
+   
+     <!-- Cart Icon -->
+<div id="cart-icon" style="position: fixed; top: 20px; right: 20px; cursor: pointer; z-index: 200;">
+    🛒<span id="cart-count" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 14px;">0</span>
+</div>
+
+<!-- Cart Modal -->
+<div id="cart-modal" style="display: none; position: fixed; top: 60px; right: 20px; background: white; border: 1px solid #ccc; padding: 10px; max-height: 300px; width: 250px; overflow-y: auto; box-shadow: 0 0 10px #333; z-index: 300;">
+    <h3>Cart</h3>
+    <div id="cart-items"></div>
+    <h4>Your Receipt Via</h4>
+    <button onclick="sendReceipt('whatsapp')" style="height: 30px; width: 70px; background-color: #255F38; color: white; border: none;">WhatsApp</button>
+    <button onclick="sendReceipt('email')" style="height: 30px; width: 70px; background-color: #255F38; color: white; border: none;">Email</button>
+</div>
+
+<script>
+    const cart = [];
+    const cartIcon = document.getElementById("cart-icon");
+    const cartModal = document.getElementById("cart-modal");
+    const cartItems = document.getElementById("cart-items");
+    const cartCount = document.getElementById("cart-count");
+
+    document.querySelectorAll(".card-btn").forEach((btn, index) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const card = btn.closest(".card");
+            const title = card.querySelector(".card-title").innerText;
+            const price = card.querySelector(".card-price").innerText;
+            const imgSrc = card.querySelector(".card-img").src;
+
+            cart.push({ title, price, imgSrc });
+            updateCart();
+        });
+    });
+
+    function updateCart() {
+        cartItems.innerHTML = "";
+        cart.forEach(item => {
+            cartItems.innerHTML += `
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <img src="${item.imgSrc}" style="width: 40px; height: 40px; object-fit: cover; margin-right: 10px;">
+                    <div>
+                        <strong>${item.title}</strong><br>
+                        <span>${item.price}</span>
+                    </div>
+                </div>
+            `;
+        });
+        cartCount.innerText = cart.length;
+    }
+
+    cartIcon.addEventListener("click", () => {
+        cartModal.style.display = cartModal.style.display === "none" ? "block" : "none";
+    });
+
+    function sendReceipt(method) {
+        let text = "🧾 *Your Jewel Shop Receipt*:\n\n";
+        cart.forEach(item => {
+            text += `• ${item.title} - ${item.price}\n`;
+        });
+
+        if (method === "whatsapp") {
+            const waURL = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(waURL, "_blank");
+        } else {
+            const gmailURL = "https://mail.google.com/mail/?view=cm&fs=1&su=" +
+                 encodeURIComponent("Your Jewel Shop Receipt") +
+                 "&body=" + encodeURIComponent(text);
+                    window.open(gmailURL, "_blank");
+
+
+        }
+    }
+</script>
+
+    
+</body>
+</html>
